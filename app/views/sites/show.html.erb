@@ -1,0 +1,21 @@
+<p>
+  <strong>Name:</strong>
+  <%= @site.name %>
+</p>
+
+<p>
+  <strong>Domain:</strong>
+  <%= @site.domain %>
+</p>
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>
+
+<br>
+
+<%= form_for(@website) do |f| %>
+  <%= f.hidden_field :name, :value => @site.name %>
+  <%= f.hidden_field :domain, :value => @site.domain %>
+  <%= f.hidden_field :site_id, :value => @site.id %>
+  <%= f.submit "Publish Changes" %>
+<% end %>

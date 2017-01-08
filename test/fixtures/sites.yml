@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Site1Name
+  domain: Site1Domain
+
+two:
+  name: Site2Name
+  domain: Site2Domain
+
+three:
+  name: Site3Name
+  domain: 
