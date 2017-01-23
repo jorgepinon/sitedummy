@@ -4,9 +4,9 @@ I've got a rails app that I want to build and I'm working out some of the compon
 
 The general idea is an app where users create their own websites. The websites have several attributes and have many product categories, which themselves have many products. Products have simple string attributes (name, description, price). 
 
-Website
-  |-- ProductCategory
-    |-- Product
+  Website
+     |-- ProductCategory
+        |-- Product
 
 * Is this best handled with a separate table for ProductCategory, and another for Product? Using foreign_keys to join them up?
 * Or, would there be any advantages to using Postgres's array column and store all product categories/products as a complex array of objects?
