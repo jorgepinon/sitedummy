@@ -13,7 +13,7 @@
 
 <br>
 
-<%= form_for(@website) do |f| %>
+<%= form_for(@website, url: site_publish_path(@site)) do |f| %>
   <%= f.hidden_field :name, :value => @site.name %>
   <%= f.hidden_field :domain, :value => @site.domain %>
   <%= f.hidden_field :site_id, :value => @site.id %>

@@ -1,5 +1,5 @@
 class SitesController < ApplicationController
-  before_action :set_site, only: [:show, :edit, :update, :publish, :destroy]
+  before_action :set_site, only: [:show, :edit, :update, :destroy]
 
   # GET /sites
   # GET /sites.json
@@ -62,6 +62,18 @@ class SitesController < ApplicationController
     end
   end
 
+  def publish
+    @website = Website.find_or_create_by(website_params)
+    if @website.save
+      flash[:success] = "Site changes published!"
+      redirect_to site_url(params[:website][:id], notice: 'Site was published')
+    else
+      flash[:error] = "Publish didn’t work."
+      @site = Site.find(params[:website][:site_id])
+      render action: 'show'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_site
@@ -72,4 +84,9 @@ class SitesController < ApplicationController
     def site_params
       params.require(:site).permit(:name, :domain)
     end
+
+    def website_params
+      params.require(:website).permit(:name, :domain, :site_id)
+    end
+
 end

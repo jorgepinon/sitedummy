@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :websites
 
-  resources :sites
+  resources :sites do
+    post 'publish'
+  end
   resources :websites
-  post 'sites/publish' => 'website#update'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
